@@ -5,4 +5,7 @@ SilverStripe\CMS\Model\SiteTree:
   extensions:
     - DorsetDigital\SilverStripeCanonical\SiteTreeCanonicalExtension
 
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - DorsetDigital\SilverstripeCanonical\ConfigCanonicalExtension
     
