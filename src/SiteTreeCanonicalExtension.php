@@ -14,7 +14,12 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
         $siteConfig = SiteConfig::current_site_config();
         if ($siteConfig->CanonicalDomain != '') {
             $canonicalBase = trim($siteConfig->CanonicalDomain, '/');
-            $canonLink = $canonicalBase . $this->owner->Link();
+            if (method_exists($this->owner, 'CanonicalLink')) {
+                $link = $this->owner->CanonicalLink();
+            } else {
+                $link = $this->owner->Link();
+            }
+            $canonLink = $canonicalBase . $link;
             $atts = [
                 'rel' => 'canonical',
                 'href' => $canonLink
