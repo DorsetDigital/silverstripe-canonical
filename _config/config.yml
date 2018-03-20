@@ -3,6 +3,6 @@ Name: 'dd-canonical'
 ---
 SilverStripe\CMS\Model\SiteTree:
   extensions:
-    - DorsetDigital\SilverStripeCanonical\SiteTreeExtension
+    - DorsetDigital\SilverStripeCanonical\SiteTreeCanonicalExtension
 
     

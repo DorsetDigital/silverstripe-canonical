@@ -4,7 +4,7 @@ namespace DorsetDigital\SilverStripeCanonical;
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\View\HTML;
 
-class SiteTreeExtension extends SiteTreeExtension
+class SiteTreeCanonicalExtension extends SiteTreeExtension
 {
 
     public function MetaTags(&$tags)
