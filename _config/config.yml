@@ -1,7 +1,9 @@
 ---
 Name: 'dd-canonical'
+After:
+  - '*'
 ---
-SilverStripe\CMS\Model\SiteTree:
+Page:
   extensions:
     - DorsetDigital\SilverStripeCanonical\SiteTreeCanonicalExtension
 
