@@ -29,14 +29,14 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
     $tagsArray = explode(PHP_EOL, $tags);
     $tagPattern = 'rel="canonical"';
 
-    $tagSearch = function ( $val ) use ( $tagPattern ) {
-    return ( stripos($val, $tagPattern) !== false ? true : false );
+    $tagSearch = function($val) use ($tagPattern) {
+    return (stripos($val, $tagPattern) !== false ? true : false);
     };
 
     $currentTags = array_filter($tagsArray, $tagSearch);
     $cleanedTags = array_diff($tagsArray, $currentTags);
 
-    $cleanedTags[] = $canonTag;
+    $cleanedTags[ ] = $canonTag;
 
     $tags = implode(PHP_EOL, $cleanedTags);
     }
