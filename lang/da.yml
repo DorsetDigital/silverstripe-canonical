@@ -1,4 +1,4 @@
 da:
-  DorsetDigital\SilverStripeCanonicalConfigCanonicalExtension:
+  DorsetDigital\SilverStripeCanonical\ConfigCanonicalExtension:
     InfoField: 'Det kanoniske domæne som tilføjes til HTML head delen af dine sider. Den skal specificeres med fuld protokol og ingen skråstreg til sidst. F.eks. https://www.example.com'
     CanonicalDomainDescription: 'f.eks. https://www.example.com'
