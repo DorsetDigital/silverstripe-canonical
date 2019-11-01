@@ -50,7 +50,7 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
                 }
             }
 
-            // default just link
+            // default link with base
             if (!isset($link)) {
                 $link = $canonicalBase . $this->owner->Link();
             }

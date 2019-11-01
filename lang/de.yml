@@ -1,6 +1,6 @@
 de:
   DorsetDigital\SilverStripeCanonical\ConfigCanonicalExtension:
-    InfoField: 'Canonical-Domain wird global als Metatag ausgegeben. Sie sollte mit Protokoll (https://) und ohne Slashes am Ende erfasst werden.'
+    InfoField: 'Canonical-Domain wird global als Metatag ausgegeben.'
     CanonicalDomainDescription: 'https://www.domain.tld'
   DorsetDigital\SilverStripeCanonical\SiteTreeCanonicalExtension:
     LinkOverride: 'Canonical URL übersteuern z.B. externe URL'
