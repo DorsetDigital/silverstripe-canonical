@@ -22,7 +22,7 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
                 ->setAttribute('placeholder', $this->getorsetCanonicalURL())
                 ->setDescription(_t(__CLASS__ . '.LinkOverrideDesc','Only set this if search engines should count another URL as the original (e.g. if re-posting a blog post from another source).'));
         } else {
-            $MetaToggle->push($MetaCanonical = LiteralField::create("CanonicalURL", '<p class="form__field-label">' . _t(__CLASS__ . '.LinkFieldPlaceholder','Canonical-URLs benötigt eine Canoinical-Domain in <a href="/admin/settings">SiteConfig</a>') . '</p>'));
+            $MetaToggle->push($MetaCanonical = LiteralField::create("CanonicalURL", '<p class="form__field-label">' . _t(__CLASS__ . '.LinkFieldPlaceholder','Canonical-URLs needs a Canoinical-Domain in <a href="/admin/settings">SiteConfig</a>') . '</p>'));
         }
         $MetaCanonical->setRightTitle(_t(__CLASS__ . '.LinkFieldRightTitle','Used to identify the original resource (URL) so that content is not considered "duplicate content". Internal & external links can be used.'));
     }
