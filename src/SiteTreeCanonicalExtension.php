@@ -27,31 +27,28 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
 
     function getorsetCanonicalURL() {
         $siteConfig = SiteConfig::current_site_config();
-        if ($siteConfig->CanonicalDomain != '') {
+        if (filter_var($siteConfig->CanonicalDomain, FILTER_VALIDATE_URL)) {
             $canonicalBase = trim($siteConfig->CanonicalDomain, '/');
 
             // dynamic value
             if (method_exists($this->owner, 'CanonicalLink')) {
                 $link = $this->owner->CanonicalLink();
-                $urlArray = parse_url($link);
-                if (!isset($urlArray['host']) && !isset($urlArray['scheme'])) {
-                    $canonicalBase = $urlArray['scheme'] . '://' . $urlArray['host'];
-                    $link = $canonicalBase . $link;
-                }
             }
 
             // canonical link on Page
-            if ($this->owner->CanonicalURL) {
-                $link = $this->owner->CanonicalURL;
+            if (isset($this->owner->CanonicalURL)) {
+                // $link = $this->owner->CanonicalURL;
+            }
+
+            // add canonicalBase if relative URL
+            if (isset($link)) {
                 $urlArray = parse_url($link);
                 if (!isset($urlArray['host']) && !isset($urlArray['scheme'])) {
                     $canonicalBase = $urlArray['scheme'] . '://' . $urlArray['host'];
                     $link = $canonicalBase . $link;
                 }
-            }
-
-            // default link with base
-            if (!isset($link)) {
+            } else {
+                // default link with base
                 $link = $canonicalBase . $this->owner->Link();
             }
 
