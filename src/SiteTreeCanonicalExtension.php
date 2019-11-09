@@ -18,7 +18,9 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
         $MetaToggle = $fields->fieldByName('Root.Main.Metadata');
         if ($url = $this->getorsetCanonicalURL()) {
             $MetaToggle->push($MetaCanonical = TextField::create('CanonicalURL', _t(__CLASS__ . '.LinkOverride',"Override canonical URL")));
-            $MetaCanonical->setAttribute('placeholder', $this->getorsetCanonicalURL());
+            $MetaCanonical
+                ->setAttribute('placeholder', $this->getorsetCanonicalURL())
+                ->setDescription(_t(__CLASS__ . '.LinkOverrideDesc','Only set this if search engines should count another URL as the original (e.g. if re-posting a blog post from another source).'));
         } else {
             $MetaToggle->push($MetaCanonical = LiteralField::create("CanonicalURL", '<p class="form__field-label">' . _t(__CLASS__ . '.LinkFieldPlaceholder','Canonical-URLs benötigt eine Canoinical-Domain in <a href="/admin/settings">SiteConfig</a>') . '</p>'));
         }
