@@ -40,7 +40,7 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
 
             // canonical link on Page
             if (isset($this->owner->CanonicalURL)) {
-                // $link = $this->owner->CanonicalURL;
+                $link = $this->owner->CanonicalURL;
             }
 
             // add canonicalBase if relative URL
