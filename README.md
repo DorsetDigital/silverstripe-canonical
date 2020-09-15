@@ -29,3 +29,4 @@ At the time of writing, the canonical tags are only added correctly for pages in
 
 # Additional Credits
 Thanks to @sanderha (https://github.com/sanderha) for the Danish translation
+Thanks to @lerni (https://github.com/lerni) for his enhancements
