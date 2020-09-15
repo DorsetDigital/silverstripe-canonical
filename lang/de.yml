@@ -1,0 +1,9 @@
+de:
+  DorsetDigital\SilverStripeCanonical\ConfigCanonicalExtension:
+    InfoField: 'Canonical-Domain wird global als Metatag ausgegeben und kann pro Page überschrieben werden in '
+    CanonicalDomainDescription: 'https://www.domain.tld'
+  DorsetDigital\SilverStripeCanonical\SiteTreeCanonicalExtension:
+    LinkOverride: 'Canonical URL übersteuern'
+    LinkOverrideDesc: 'Nur verwenden, wenn eine andere URL als "Original" gekennzeichnet werden soll.'
+    LinkFieldPlaceholder: 'Canonical-URLs benötigt eine Canoinical-Domain in <a href="/admin/settings">SiteConfig</a>'
+    LinkFieldRightTitle: 'Wird verwendet um die Originalresource (URL) auszuweisen und "Duplicate Content" zu verhindern.'
