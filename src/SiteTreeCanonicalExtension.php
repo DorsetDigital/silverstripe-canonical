@@ -50,7 +50,6 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
             if (isset($link)) {
                 $urlArray = parse_url($link);
                 if (!isset($urlArray['host']) && !isset($urlArray['scheme'])) {
-                    $canonicalBase = $urlArray['scheme'] . '://' . $urlArray['host'];
                     $link = $canonicalBase . $link;
                 }
             } else {
