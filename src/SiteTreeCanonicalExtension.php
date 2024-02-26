@@ -74,7 +74,7 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
             $tagPattern = 'rel="canonical"';
 
             $tagSearch = function ($val) use ($tagPattern) {
-                return (stripos($val, $tagPattern) !== false ? true : false);
+                return (stripos($val ?? '', $tagPattern) !== false ? true : false);
             };
 
             $currentTags = array_filter($tagsArray, $tagSearch);
