@@ -1,26 +1,30 @@
 {
- "name": "dorsetdigital/silverstripe-canonical",
- "description": "Adds a simple canonical tag in Silverstripe 4",
- "type": "silverstripe-vendormodule",
- "homepage": "https://github.com/DorsetDigital/silverstripe-canonical",
- "keywords": ["silverstripe", "html", "seo", "canonical"],
- "authors": [
-  {
-   "name": "Tim Burt",
-   "email": "tim@dorset-digital.net"
-  }
- ], 
- "require": {
-  "silverstripe/vendor-plugin": "^2.0",
-  "silverstripe/cms": "^5.0"
- },
- "license": "BSD-3-Clause",
- "autoload": {
-  "psr-4": {
-   "DorsetDigital\\SilverStripeCanonical\\": "src/"
-  }
- },
- "extra": {
- },
- "minimum-stability": "dev"
+	"name": "dorsetdigital/silverstripe-canonical",
+	"description": "Adds a simple canonical tag in Silverstripe 4",
+	"type": "silverstripe-vendormodule",
+	"homepage": "https://github.com/DorsetDigital/silverstripe-canonical",
+	"keywords": [
+		"silverstripe",
+		"html",
+		"seo",
+		"canonical"
+	],
+	"authors": [
+		{
+			"name": "Tim Burt",
+			"email": "tim@dorset-digital.net"
+		}
+	],
+	"require": {
+		"silverstripe/vendor-plugin": "^1.0 || ^2.0",
+		"silverstripe/cms": "^4.0 || ^5.0"
+	},
+	"license": "BSD-3-Clause",
+	"autoload": {
+		"psr-4": {
+			"DorsetDigital\\SilverStripeCanonical\\": "src/"
+		}
+	},
+	"extra": {},
+	"minimum-stability": "dev"
 }
