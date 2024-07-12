@@ -8,6 +8,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\CMS\Model\VirtualPage;
 
 class SiteTreeCanonicalExtension extends SiteTreeExtension
 {
@@ -23,6 +24,11 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
                 $MetaCanonical
                     ->setAttribute('placeholder', $this->getorsetCanonicalURL())
                     ->setDescription(_t(__CLASS__ . '.LinkOverrideDesc', 'Only set this if another URL should count as the original (e.g. of reposting a blog post from another source).'));
+                if ($this->owner->ClassName == VirtualPage::class) {
+                    $MetaCanonical
+                        ->setReadonly(true)
+                        ->setDescription(_t(__CLASS__ . '.LinkOverrideVirtualDesc', 'Linked page will be used.'));
+                }
             } else {
                 $MetaToggle->push($MetaCanonical = LiteralField::create("CanonicalURL", '<p class="form__field-label">' . _t(__CLASS__ . '.LinkFieldPlaceholder', 'Canonical-URLs needs a Canoinical-Domain in <a href="/admin/settings">SiteConfig</a>') . '</p>'));
             }
@@ -46,6 +52,11 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
                 $link = $this->owner->CanonicalURL;
             }
 
+            // use CopyContentFrom()->Link() for VirtualPage
+            if ($this->owner->ClassName == VirtualPage::class) {
+                $link = $this->owner->CopyContentFrom()->Link();
+            }
+
             // add canonicalBase if relative URL
             if (isset($link)) {
                 $urlArray = parse_url($link);
@@ -61,28 +72,16 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
         }
     }
 
-    public function MetaTags(&$tags)
+    public function MetaComponents(array &$tags)
     {
         if ($canonLink = $this->getorsetCanonicalURL()) {
-            $atts = [
-                'rel' => 'canonical',
-                'href' => $canonLink
+            $tags['canonical'] = [
+                'tag' => 'link',
+                'attributes' => [
+                    'rel' => 'canonical',
+                    'href' => $canonLink
+                ]
             ];
-            $canonTag = HTML::createTag('link', $atts);
-
-            $tagsArray = explode(PHP_EOL, $tags);
-            $tagPattern = 'rel="canonical"';
-
-            $tagSearch = function ($val) use ($tagPattern) {
-                return (stripos($val, $tagPattern) !== false ? true : false);
-            };
-
-            $currentTags = array_filter($tagsArray, $tagSearch);
-            $cleanedTags = array_diff($tagsArray, $currentTags);
-
-            $cleanedTags[] = $canonTag;
-
-            $tags = implode(PHP_EOL, $cleanedTags);
         }
     }
 }
