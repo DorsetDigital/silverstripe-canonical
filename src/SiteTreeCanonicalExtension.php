@@ -30,7 +30,7 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
                         ->setDescription(_t(__CLASS__ . '.LinkOverrideVirtualDesc', 'Linked page will be used.'));
                 }
             } else {
-                $MetaToggle->push($MetaCanonical = LiteralField::create("CanonicalURL", '<p class="form__field-label">' . _t(__CLASS__ . '.LinkFieldPlaceholder', 'Canonical-URLs needs a Canoinical-Domain in <a href="/admin/settings">SiteConfig</a>') . '</p>'));
+                $MetaToggle->push($MetaCanonical = LiteralField::create("CanonicalURL", '<p class="form__field-label">' . _t(__CLASS__ . '.LinkFieldPlaceholder', 'Canonical-URLs needs a Canonical domain in <a href="/admin/settings">SiteConfig</a>') . '</p>'));
             }
             $MetaCanonical->setRightTitle(_t(__CLASS__ . '.LinkFieldRightTitle', 'Used to identify the original resource (URL) to prevent being considered as "duplicate content".'));
         }
