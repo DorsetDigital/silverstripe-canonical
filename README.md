@@ -7,7 +7,7 @@ Adds a simple rel=canonical tag to Silverstripe
 [![Version](http://img.shields.io/packagist/v/dorsetdigital/silverstripe-canonical.svg?style=flat)](https://packagist.org/packages/dorsetdigital/silverstripe-canonical)
 
 # Requirements
-*Silverstripe 4 | 5
+*Silverstripe 6
 
 # Installation
 * Install the code with `composer require dorsetdigital/silverstripe-canonical`

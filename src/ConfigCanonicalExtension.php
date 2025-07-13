@@ -2,19 +2,18 @@
 
 namespace DorsetDigital\SilverStripeCanonical;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\FieldList;
 
-
-class ConfigCanonicalExtension extends DataExtension
+class ConfigCanonicalExtension extends Extension
 {
-    private static $db = [
+    private static array $db = [
         'CanonicalDomain' => 'Varchar(255)'
     ];
 
-    public function updateCMSFields(FieldList $fields)
+    public function updateCMSFields(FieldList $fields): void
     {
 
         $CanonicalDomainField = TextField::create('CanonicalDomain')
@@ -22,7 +21,5 @@ class ConfigCanonicalExtension extends DataExtension
             ->setAttribute('placeholder', _t(__CLASS__ . '.CanonicalDomainDescription', 'https://www.example.com'));
 
         $fields->addFieldToTab('Root.Canonical', $CanonicalDomainField);
-
-        return $fields;
     }
 }
