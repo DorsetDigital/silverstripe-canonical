@@ -7,7 +7,8 @@ Adds a simple rel=canonical tag to Silverstripe
 [![Version](http://img.shields.io/packagist/v/dorsetdigital/silverstripe-canonical.svg?style=flat)](https://packagist.org/packages/dorsetdigital/silverstripe-canonical)
 
 # Requirements
-*Silverstripe 6
+* Silverstripe 6 - Use V3 branch
+* Silverstripe 4 / 5 - Use V2 branch
 
 # Installation
 * Install the code with `composer require dorsetdigital/silverstripe-canonical`
@@ -27,3 +28,4 @@ At the time of writing, the canonical tags are only added correctly for pages in
 # Additional Credits
 * Thanks to @sanderha for the Danish translation
 * Thanks to @lerni for his enhancements
+* Thanks to @satrun77 for adding CMS 6 support
