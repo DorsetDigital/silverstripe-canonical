@@ -7,16 +7,16 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\CMS\Model\VirtualPage;
 
-class SiteTreeCanonicalExtension extends SiteTreeExtension
+class SiteTreeCanonicalExtension extends Extension
 {
-    private static $db = [
+    private static array $db = [
         'CanonicalURL' => 'Text'
     ];
 
-    public function updateCMSFields(FieldList $fields)
+    public function updateCMSFields(FieldList $fields): void
     {
         if ($MetaToggle = $fields->fieldByName('Root.Main.Metadata')) {
             if ($url = $this->getorsetCanonicalURL()) {
@@ -36,7 +36,7 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
         }
     }
 
-    function getorsetCanonicalURL()
+    function getorsetCanonicalURL(): ?string
     {
         $siteConfig = SiteConfig::current_site_config();
         if (filter_var($siteConfig->CanonicalDomain, FILTER_VALIDATE_URL)) {
@@ -70,9 +70,11 @@ class SiteTreeCanonicalExtension extends SiteTreeExtension
 
             return $link;
         }
+
+        return null;
     }
 
-    public function MetaComponents(array &$tags)
+    public function updateMetaComponents(array &$tags): void
     {
         if ($canonLink = $this->getorsetCanonicalURL()) {
             $tags['canonical'] = [

@@ -1,6 +1,6 @@
 {
 	"name": "dorsetdigital/silverstripe-canonical",
-	"description": "Adds a simple canonical tag in Silverstripe 4",
+	"description": "Adds a simple canonical tag in Silverstripe",
 	"type": "silverstripe-vendormodule",
 	"homepage": "https://github.com/DorsetDigital/silverstripe-canonical",
 	"keywords": [
@@ -16,7 +16,8 @@
 		}
 	],
 	"require": {
-		"silverstripe/cms": "^4.0 || ^5.0"
+		"php": "^8.3",
+		"silverstripe/cms": "^6"
 	},
 	"license": "BSD-3-Clause",
 	"autoload": {
